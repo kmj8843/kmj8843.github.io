@@ -1,5 +1,5 @@
-title:            Blog Title
-description:      Describe your website here.
+title:            DevNote
+description:      DevNote
 
 # put your disqus here
 disqus_shortname:
@@ -20,22 +20,22 @@ url: https://kmj8843.github.io/
 menu:
   - title: 'Home'
     url: '/'
-  - title: 'Fork'
-    url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme'
-  - title: 'Install'
-    url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme#installation'
-  - title: 'Tags'
-    url: '/tags'
+#  - title: 'Fork'
+#    url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme'
+#  - title: 'Install'
+#    url: 'http://github.com/aron-bordin/neo-hpstr-jekyll-theme#installation'
   - title: 'Categories'
     url: '/categories'
     type: 'categories'
-  - title: 'Favorites'
-    url: '#'
-    submenu:
-      - title: 'Code Highlighter'
-        url: '/intro/code-highlighting-post/'
-      - title: 'Sample Post'
-        url: '/intro/sample-post/'
+  - title: 'Tags'
+    url: '/tags'
+#  - title: 'Favorites'
+#    url: '#'
+#    submenu:
+#      - title: 'Code Highlighter'
+#        url: '/intro/code-highlighting-post/'
+#      - title: 'Sample Post'
+#        url: '/intro/sample-post/'
 
 # Owner/author information
 owner:
@@ -57,23 +57,23 @@ twitter:
 social:
   - title: "github"
     url: "https://github.com/aron-bordin"
-  - title: "linkedin"
-    url: "https://br.linkedin.com/in/aronbordin"
-  - title: "youtube"
-    url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
+#  - title: "linkedin"
+#    url: "https://br.linkedin.com/in/aronbordin"
+#  - title: "youtube"
+#    url: "https://www.youtube.com/channel/UCfnSek-9HPWOx5e2pH7VFgg"
 
 # Background image to be tiled on all pages
 background:
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:
+google_analytics: G-VQ3DN1KWFJ
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
-locale:      en_US
+timezone:    Asia/Seoul
+locale:      ko_KR
 future:      true
 highlighter: rouge
 markdown:    kramdown
@@ -88,7 +88,7 @@ permalink:   /:categories/:title/
 paginate: 5
 
 # if true, shows the floatting share buttons
-float_share: true
+float_share: false
 
 # Octopress
 # Default extensions

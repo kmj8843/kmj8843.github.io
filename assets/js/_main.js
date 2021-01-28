@@ -87,6 +87,7 @@ $(document).ready(function(){
   });
 });
 
+
 var sharing = function(){
     $(document).ready(function(){
       $("body").floatingSocialShare({
@@ -95,3 +96,4 @@ var sharing = function(){
       });
     });
 };//sharing
+
