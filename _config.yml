@@ -43,7 +43,7 @@ owner:
   site:           http://aronbordin.com
   avatar:         images/avatar.jpg
   bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  email:          rlalsa8843@gmail.com
   # Twitter nick for use in Twitter cards and follow button.
   twitter:  # if no twitter in this config, the twitter follow button will be removed
   # GitHub nick for use in follow button in author block.
@@ -56,7 +56,7 @@ twitter:
 # Social networking links used in author block underneath posts. Update and remove as you like.
 social:
   - title: "github"
-    url: "https://github.com/aron-bordin"
+    url: "https://github.com/kmj8843/"
 #  - title: "linkedin"
 #    url: "https://br.linkedin.com/in/aronbordin"
 #  - title: "youtube"
@@ -67,7 +67,7 @@ background:
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: G-DWHWZ9S89C
-google_verify:
+google_verify: iY-b2q4thujTnof_10ohSVJlHV-Loq2yS1TBFMRRYH8
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
