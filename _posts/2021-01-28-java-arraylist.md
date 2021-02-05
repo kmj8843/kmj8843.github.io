@@ -62,8 +62,16 @@ ArrayList는 `java.util.List interface` 를 구현한 `java.util.ArrayList class
 1. Params: -
 2. Result: `int`
 3. Desc: ArrayList의 요소 개수를 반환
+4. 함수 원형
+{% highlight java %}
+private int size; // ArrayList 변경 시 size도 같이 변경
 
-Ex)
+public int size() {
+    return size;
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 List<String> list = new ArrayList<String>();
 
@@ -88,8 +96,14 @@ list size : 3
 1. Params: -
 2. Result: boolean
 3. Desc: 요소가 없으면 true를 반환
+4. 원형
+{% highlight java %}
+public boolean isEmpty() {
+    return size == 0;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 List<String> list = new ArrayList<String>();
 
@@ -110,10 +124,16 @@ System.out.println("값 삽입 후: " + list.isEmpty()); // false
 
 ## 2-3. contains
 1. Params: Object
-2. Result: int
+2. Result: boolean
 3. Desc: Param 요소가 있으면 true를 반환
+4. 원형
+{% highlight java %}
+public boolean contains(Object o) {
+    return indexOf(o) >= 0;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 List<String> list = new ArrayList<String>();
 
@@ -133,10 +153,25 @@ System.out.println("다음 포함 여부 : " + list.contains("daum"));
 
 ## 2-4. indexOf
 1. Params: Object
-2. Result: boolean
+2. Result: int
 3. Desc: Param 요소의 첫 번째 List의 Index를 반환, 없으면 -1을 반환
+4. 원형
+{% highlight java %}
+public int indexOf(Object o) {
+    if (o == null) {
+        for (int i = 0; i < size; i++)
+            if (elementData[i]==null)
+                return i;
+    } else {
+        for (int i = 0; i < size; i++)
+            if (o.equals(elementData[i]))
+                return i;
+    }
+    return -1;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 List<String> list = new ArrayList<String>();
 		
@@ -161,12 +196,27 @@ daum indexOf: -1
 
 <br/>
 
-## 2-4. lastIndexOf
+## 2-5. lastIndexOf
 1. Params: Object
-2. Result: boolean
+2. Result: int
 3. Desc: Param 요소의 마지막 List의 Index를 반환, 없으면 -1을 반환
+4. 원형
+{% highlight java %}
+public int lastIndexOf(Object o) {
+    if (o == null) {
+        for (int i = size-1; i >= 0; i--)
+            if (elementData[i]==null)
+                return i;
+    } else {
+        for (int i = size-1; i >= 0; i--)
+            if (o.equals(elementData[i]))
+                return i;
+    }
+    return -1;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 List<String> list = new ArrayList<String>();
 
@@ -186,16 +236,31 @@ google lastIndexOf: 3
 kakao lastIndexOf: 2
 daum lastIndexOf: -1
 {% endhighlight %}
+> indexOf 메소드와 거의 비슷하나 마지막 index 부터 조회<br>
 > 마지막부터 탐색해서 찾은 값의 index를 반환
 
 <br/>
 
-## 2-5. clone
+## 2-6. clone
 1. Params: -
 2. Result: Object
 3. Desc: List를 복제한 인스턴스를 반환
+4. 원형
+{% highlight java %}
+public Object clone() {
+    try {
+        ArrayList<?> v = (ArrayList<?>) super.clone();
+        v.elementData = Arrays.copyOf(elementData, size);
+        v.modCount = 0;
+        return v;
+    } catch (CloneNotSupportedException e) {
+        // this shouldn't happen, since we are Cloneable
+        throw new InternalError(e);
+    }
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -217,12 +282,18 @@ System.out.println("리스트2: " + list2.toString());
 
 <br/>
 
-## 2-6. toArray
+## 2-7. toArray
 1. Params: -
 2. Result: Object[]
 3. Desc: List의 첫 번째부터 마지막 요소를 배열로 반환
+4. 원형
+{% highlight java %}
+public Object[] toArray() {
+    return Arrays.copyOf(elementData, size);
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -247,8 +318,20 @@ obj: naver google kakao
 1. Params: \<T\> T[]
 2. Result: T[]
 3. Desc: List의 첫 번째부터 마지막 요소를 배열로 반환(Generic 타입)
+4. 원형
+{% highlight java %}
+public <T> T[] toArray(T[] a) {
+    if (a.length < size)
+        // Make a new array of a's runtime type, but my contents:
+        return (T[]) Arrays.copyOf(elementData, size, a.getClass());
+    System.arraycopy(elementData, 0, a, 0, size);
+    if (a.length > size)
+        a[size] = null;
+    return a;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -271,12 +354,20 @@ arr: naver google kakao
 
 <br/>
 
-## 2-7. get
+## 2-8. get
 1. Params: int
 2. Result: E
 3. Desc: List의 index 번째 요소의 값을 반환
+4. 원형
+{% highlight java %}
+public E get(int index) {
+    rangeCheck(index);
 
-Ex)
+    return elementData(index);
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -296,12 +387,22 @@ System.out.println("2번째 Index: " + list.get(2));
 
 <br/>
 
-## 2-8. set
+## 2-9. set
 1. Params: int, E
 2. Result: E
 3. Desc: List의 index 번째 요소를 반환하고 해당 요소의 값을 E로 치환
+4. 원형
+{% highlight java %}
+public E set(int index, E element) {
+    rangeCheck(index);
 
-Ex)
+    E oldValue = elementData(index);
+    elementData[index] = element;
+    return oldValue;
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -322,12 +423,20 @@ list 수정 후: [daum, google, kakao]
 
 <br/>
 
-## 2-9. add
+## 2-10. add
 1. Params: E
 2. Result: boolean
 3. Desc: List의 마지막에 E 값을 삽입하고 true를 반환
+4. 원형
+{% highlight java %}
+public boolean add(E e) {
+    ensureCapacityInternal(size + 1);  // Increments modCount!!
+    elementData[size++] = e;
+    return true;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -350,8 +459,20 @@ b3: true
 1. Params: int, E
 2. Result: void
 3. Desc: List의 index 번째 요소에 E 값을 삽입
+4. 원형
+{% highlight java %}
+public void add(int index, E element) {
+    rangeCheckForAdd(index);
 
-Ex)
+    ensureCapacityInternal(size + 1);  // Increments modCount!!
+    System.arraycopy(elementData, index, elementData, index + 1,
+                        size - index);
+    elementData[index] = element;
+    size++;
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -372,12 +493,29 @@ System.out.println(list.toString());
 
 <br/>
 
-## 2-10. remove
+## 2-11. remove
 1. Params: int
 2. Result: E
 3. Desc: List의 index 번째 요소를 반환하고 해당 요소를 삭제
+4. 원형
+{% highlight java %}
+public E remove(int index) {
+    rangeCheck(index);
 
-Ex)
+    modCount++;
+    E oldValue = elementData(index);
+
+    int numMoved = size - index - 1;
+    if (numMoved > 0)
+        System.arraycopy(elementData, index+1, elementData, index,
+                            numMoved);
+    elementData[--size] = null; // clear to let GC do its work
+
+    return oldValue;
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -399,8 +537,27 @@ google값 삭제 후 리스트: [naver, kakao]
 1. Params: Object
 2. Result: boolean
 3. Desc: List의 첫 번째 Object 값을 삭제하고, 값이 있으면 true 없으면 false를 반환
+4. 원형
+{% highlight java %}
+public boolean remove(Object o) {
+    if (o == null) {
+        for (int index = 0; index < size; index++)
+            if (elementData[index] == null) {
+                fastRemove(index);
+                return true;
+            }
+    } else {
+        for (int index = 0; index < size; index++)
+            if (o.equals(elementData[index])) {
+                fastRemove(index);
+                return true;
+            }
+    }
+    return false;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -440,12 +597,24 @@ daum 삭제 실패
 
 <br/>
 
-## 2-11. clear
+## 2-12. clear
 1. Params: -
 2. Result: void
 3. Desc: List의 모든 값 삭제
+4. 원형
+{% highlight java %}
+public void clear() {
+    modCount++;
 
-Ex)
+    // clear to let GC do its work
+    for (int i = 0; i < size; i++)
+        elementData[i] = null;
+
+    size = 0;
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 ArrayList<String> list = new ArrayList<String>();
 
@@ -466,12 +635,23 @@ clear 이후: []
 
 <br/>
 
-## 2-12. addAll
+## 2-13. addAll
 1. Params: Collection<? extends E>
 2. Result: boolean
 3. Desc: Collection 요소의 모든 요소의 값을 ArrayList의 마지막 요소에 추가
+4. 원형
+{% highlight java %}
+public boolean addAll(Collection<? extends E> c) {
+    Object[] a = c.toArray();
+    int numNew = a.length;
+    ensureCapacityInternal(size + numNew);  // Increments modCount
+    System.arraycopy(a, 0, elementData, size, numNew);
+    size += numNew;
+    return numNew != 0;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> sites = new ArrayList<String>();
 
@@ -496,8 +676,27 @@ fruits addAll: [apple, orange, naver, kakao, google]
 1. Params: int, Collection<? extends E>
 2. Result: boolean
 3. Desc: Collection 요소의 모든 요소의 값을 ArrayList의 Index 번째에 추가
+4. 원형
+{% highlight java %}
+public boolean addAll(int index, Collection<? extends E> c) {
+    rangeCheckForAdd(index);
 
-Ex)
+    Object[] a = c.toArray();
+    int numNew = a.length;
+    ensureCapacityInternal(size + numNew);  // Increments modCount
+
+    int numMoved = size - index;
+    if (numMoved > 0)
+        System.arraycopy(elementData, index, elementData, index + numNew,
+                            numMoved);
+
+    System.arraycopy(a, 0, elementData, index, numNew);
+    size += numNew;
+    return numNew != 0;
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 ArrayList<String> sites = new ArrayList<String>();
 
@@ -521,12 +720,19 @@ fruits addAll: [apple, naver, kakao, google, orange]
 
 <br/>
 
-## 2-13. removeAll
+## 2-14. removeAll
 1. Params: Collection<?>
 2. Result: boolean
 3. Desc: Collection 요소에 존재하는 ArrayList 요소를 삭제, 삭제한 값이 있으면 true 없으면 false를 반환
+4. 원형
+{% highlight java %}
+public boolean removeAll(Collection<?> c) {
+    Objects.requireNonNull(c);
+    return batchRemove(c, false);
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> sites = new ArrayList<String>();
 
@@ -549,12 +755,19 @@ sites 삭제 후: [kakao, daum]
 
 <br/>
 
-## 2-14. retainAll
+## 2-15. retainAll
 1. Params: Collection<?>
 2. Result: boolean
 3. Desc: Collection 요소와 ArrayList에 공통적으로 존재하는 요소만 저장
+4. 원형
+{% highlight java %}
+public boolean retainAll(Collection<?> c) {
+    Objects.requireNonNull(c);
+    return batchRemove(c, true);
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> sites = new ArrayList<String>();
 
@@ -575,12 +788,57 @@ sites: [naver, google]
 
 <br/>
 
-## 2-15. removeIf
+## 2-16. removeIf
 1. Params: Predicate<? super E>
 2. Result: boolean
 3. Desc: Predicate 인자로 전달된 요소 삭제
+4. 원형
+{% highlight java %}
+@Override
+public boolean removeIf(Predicate<? super E> filter) {
+    Objects.requireNonNull(filter);
+    // figure out which elements are to be removed
+    // any exception thrown from the filter predicate at this stage
+    // will leave the collection unmodified
+    int removeCount = 0;
+    final BitSet removeSet = new BitSet(size);
+    final int expectedModCount = modCount;
+    final int size = this.size;
+    for (int i=0; modCount == expectedModCount && i < size; i++) {
+        @SuppressWarnings("unchecked")
+        final E element = (E) elementData[i];
+        if (filter.test(element)) {
+            removeSet.set(i);
+            removeCount++;
+        }
+    }
+    if (modCount != expectedModCount) {
+        throw new ConcurrentModificationException();
+    }
 
-Ex)
+    // shift surviving elements left over the spaces left by removed elements
+    final boolean anyToRemove = removeCount > 0;
+    if (anyToRemove) {
+        final int newSize = size - removeCount;
+        for (int i=0, j=0; (i < size) && (j < newSize); i++, j++) {
+            i = removeSet.nextClearBit(i);
+            elementData[j] = elementData[i];
+        }
+        for (int k=newSize; k < size; k++) {
+            elementData[k] = null;  // Let gc do its work
+        }
+        this.size = newSize;
+        if (modCount != expectedModCount) {
+            throw new ConcurrentModificationException();
+        }
+        modCount++;
+    }
+
+    return anyToRemove;
+}
+{% endhighlight %}
+
+예시)
 {% highlight java %}
 ArrayList<String> sites = new ArrayList<String>();
 
@@ -606,12 +864,28 @@ remove 후3: []
 
 <br/>
 
-## 2-16. replaceAll
+## 2-17. replaceAll
 1. Params: UnaryOperator<E>
 2. Result: void
 3. Desc: UnaryOperator 인자로 전달된 요소 변경
+4. 원형
+{% highlight java %}
+@Override
+public void replaceAll(UnaryOperator<E> operator) {
+    Objects.requireNonNull(operator);
+    final int expectedModCount = modCount;
+    final int size = this.size;
+    for (int i=0; modCount == expectedModCount && i < size; i++) {
+        elementData[i] = operator.apply((E) elementData[i]);
+    }
+    if (modCount != expectedModCount) {
+        throw new ConcurrentModificationException();
+    }
+    modCount++;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> sites = new ArrayList<String>();
 
@@ -631,12 +905,24 @@ list 수정 후: [NAVER, KAKAO, GOOGLE, DAUM]
 
 <br/>
 
-## 2-17. sort
+## 2-18. sort
 1. Params: Comparator<? super E>
 2. Result: void
 3. Desc: Comparator 인자에 맞도록 정렬
+4. 원형
+{% highlight java %}
+@Override
+public void sort(Comparator<? super E> c) {
+    final int expectedModCount = modCount;
+    Arrays.sort((E[]) elementData, 0, size, c);
+    if (modCount != expectedModCount) {
+        throw new ConcurrentModificationException();
+    }
+    modCount++;
+}
+{% endhighlight %}
 
-Ex)
+예시)
 {% highlight java %}
 ArrayList<String> sites = new ArrayList<String>();
 
@@ -658,4 +944,4 @@ System.out.println(sites.toString());
 {% endhighlight %}
 
 ## 3. 마치며
-> 참고 : `https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html`
+참고 : [Oracle](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html "링크 접속")
