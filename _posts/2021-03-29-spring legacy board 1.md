@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[Spring] 게시판 만들기"
+title: "[Spring] 게시판 만들기 1편"
 description: "Spring legacy를 활용한 게시판 만들기"
-modified: 2021-02-09
+modified: 2021-03-30
 tags: [Spring, Spring legacy, Spring board]
 categories: [Spring]
 ---
@@ -20,7 +20,7 @@ Spring Legacy를 활용하여 게시판을 만들어 보자
 | Mapper    | Mybatis 3.5.6          |
 
 # 시작
-먼저 스프링 프로젝트를 생성하면 아래와 같은 패키지 구성을 가질 것이다.
+먼저 스프링 프로젝트를 생성하면 아래와 같은 패키지 구성을 가질 것이다.(Eclipse 기준)
 
 {% highlight xml %}
 ┌─ src
@@ -226,7 +226,7 @@ CREATE TABLE `SpringBoard`.`TB_REPLY` (
 
 Mapper.xml 위치와 Mapper interface의 위치를 정의 합니다. 현재 구성는 mapper.xml 은 classpath의 mapper 폴더 내에 -mapper.xml 로 끝나는 파일이며, mapper inteface는 com.rlalsa8843.board 패키지 밑의 모든 클래스(인터페이스)를 스캔합니다.
 
-# 2. 클래스
+# 2. 시작
 ## BoardMapper.java
 {% highlight java %}
 package com.rlalsa8843.board.mapper;
