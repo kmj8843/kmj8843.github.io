@@ -198,8 +198,12 @@ giscus:
   category:            "Comments"
   category-id:         "DIC_kwDOE96r4c4CWaee"
   mapping:             "pathname"
+  strict:              "0"
   reaction-enabled:    "1"
+  emit-metadata:       "0"
+  input-position:      "bottom"
   theme:               "preferred_color_scheme"
+  lang:                "ko"
   crossorigin:         "anonymous"
 
 # Setting a tinyletter username will enable the newsletter subscription box.
