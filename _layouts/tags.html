@@ -5,8 +5,8 @@ layout: page
 {{ content }}
 
 {% assign documents = site.documents %}
-{% assign featured_categories = documents | where: "type", "category" | sort %}
-{% assign featured_tags = documents | where: "type", "tag" | sort %}
+{% assign featured_categories = documents | where: "type", "category" | sort: "order" %}
+{% assign featured_tags = documents | where: "type", "tag" | sort: "order" %}
 
 {% assign categories = site.categories | sort %}
 {% assign tags = site.tags | sort %}

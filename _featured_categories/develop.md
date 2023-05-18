@@ -1,10 +1,10 @@
 ---
 layout: list
 type: category
-title: sample
-slug: sample
+title: Develop
+slug: Develop
 sidebar: true
-order: 1
+order: 3
 description: >
-  Anything about development
+  Develop
 ---
