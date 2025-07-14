@@ -62,7 +62,6 @@ plugins:
   - tags
 
 nav:
-  - Home: index.md
   - Frameworks:
       - React Native:
           - 개요: frameworks/react-native/index.md
