@@ -1,5 +1,5 @@
 site_name: 끄적끄적
-site_description: 그냥 공부하는거 끄적끄적
+site_description: 끄적끄적
 site_url: https://kmj8843.github.io
 repo_url: https://github.com/kmj8843/kmj8843.github.io
 edit_uri: edit/main/docs/
@@ -59,9 +59,6 @@ plugins:
   - search
   - blog:
       archive_date_format: yyyy
-      # categories_allowed:
-      #   - Holidays
-      #   - News
   - tags
 
 nav:
