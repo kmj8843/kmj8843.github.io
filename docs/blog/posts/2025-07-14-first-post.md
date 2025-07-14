@@ -68,16 +68,10 @@ docs/
 
 ---
 
-## 기타 사용
+## 기타 사용 방법
 
-| Method   | Description                          |
-| -------- | ------------------------------------ |
-| `GET`    | :material-check: Fetch resource      |
-| `PUT`    | :material-check-all: Update resource |
-| `DELETE` | :material-close: Delete resource     |
-
-[test]
-[test]: ../index.md#scrollview
-
+툴팁 예시
 [Hover me](https://example.com "I'm a tooltip!")
+
+이미지 삽입 예시  
 ![Image title](https://dummyimage.com/600x400/eee/aaa){ align=left }
