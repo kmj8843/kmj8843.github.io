@@ -1,0 +1,5 @@
+# index
+
+```bash
+mkdocs serve
+```

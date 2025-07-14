@@ -7,6 +7,7 @@ repo_name: GitHub
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.tabs
     - navigation.sections
@@ -14,6 +15,9 @@ theme:
     - navigation.indexes
     - content.tooltips
     - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - content.tabs.link
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -53,7 +57,11 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 
 plugins:
   - search
@@ -62,6 +70,7 @@ plugins:
   - tags
 
 nav:
+  - Home: index.md
   - Frameworks:
       - React Native:
           - 개요: frameworks/react-native/index.md
