@@ -1,0 +1,75 @@
+site_name: 끄적끄적
+site_description: 그냥 공부하는거 끄적끄적
+site_url: https://kmj8843.github.io
+repo_url: https://github.com/kmj8843/kmj8843.github.io
+edit_uri: edit/main/docs/
+repo_name: GitHub
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - content.tooltips
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  # favicon: assets/favicon.png
+  icon:
+    logo: logo
+  font:
+    text: Inter
+    code: Fira Code
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - blog:
+      archive_date_format: yyyy
+      # categories_allowed:
+      #   - Holidays
+      #   - News
+  - tags
+
+nav:
+  - Home: index.md
+  - Frameworks:
+      - React Native:
+          - 개요: frameworks/react-native/index.md
+          - Components:
+              - Deep Link: frameworks/react-native/components/deep-link.md
+  - Blog:
+      - blog/index.md
