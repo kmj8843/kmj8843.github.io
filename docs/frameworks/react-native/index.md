@@ -36,6 +36,10 @@
 
 [deep-link](./components/deep-link.md)
 
+## troubleshooting
+
+[build-config](./troubleshooting/buildconfig.md)
+
 ### dark mode
 
 emulator 다크모드 활성화

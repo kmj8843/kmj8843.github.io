@@ -40,6 +40,12 @@ pip install mkdocs mkdocs-material
 
 > `---` 사이의 구역은 **YAML frontmatter**라고 하며, 블로그 메타데이터로 사용됩니다.
 
+## 🚀 MkDocs 실행
+
+```bash
+mkdocs serve
+```
+
 ---
 
 ## ✅ 폴더 구조 예시
@@ -72,6 +78,9 @@ docs/
 
 툴팁 예시
 [Hover me](https://example.com "I'm a tooltip!")
+
+[test]
+[test]: ../index.md#asd
 
 이미지 삽입 예시  
 ![Image title](https://dummyimage.com/600x400/eee/aaa)
@@ -119,3 +128,35 @@ docs/
         2. Donec vitae suscipit est
         3. Nulla tempor lobortis orci
         ```
+
+---
+
+## 📝 코드 예시
+
+```py title="bubble_sort.py" linenums="1" hl_lines="2 3"
+def bubble_sort(items):
+    for i in range(len(items)):
+        for j in range(len(items) - 1 - i):
+            if items[j] > items[j + 1]:
+                items[j], items[j + 1] = items[j + 1], items[j]
+```
+
+```yaml
+theme:
+  features:
+    - content.code.annotate # (1)
+```
+
+1.  :man_raising_hand: I'm a code annotation! I can contain `code`, **formatted
+    text**, images, ... basically anything that can be written in Markdown.
+
+---
+
+## 📦 코드 샌드박스 예시
+
+<iframe src="https://codesandbox.io/embed/new?view=editor+%2B+preview&module=%2Fsrc%2FApp.js"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="React"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>

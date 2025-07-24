@@ -50,7 +50,6 @@ theme:
 markdown_extensions:
   - abbr
   - attr_list
-  - pymdownx.snippets
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -62,6 +61,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 
 plugins:
   - search
@@ -76,5 +80,7 @@ nav:
           - 개요: frameworks/react-native/index.md
           - Components:
               - Deep Link: frameworks/react-native/components/deep-link.md
+              - Troubleshoot:
+                  - BuildConfig: frameworks/react-native/troubleshooting/buildconfig.md
   - Blog:
       - blog/index.md
