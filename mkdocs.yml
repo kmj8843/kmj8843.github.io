@@ -15,6 +15,7 @@ theme:
     - navigation.indexes
     - content.tooltips
     - content.code.copy
+    - content.code.annotate
     - content.action.edit
     - content.action.view
     - content.tabs.link
@@ -66,6 +67,11 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 plugins:
   - search
@@ -82,5 +88,7 @@ nav:
               - Deep Link: frameworks/react-native/components/deep-link.md
               - Troubleshoot:
                   - BuildConfig: frameworks/react-native/troubleshooting/buildconfig.md
+          - receipes:
+              - Kotlin Bridge: frameworks/react-native/receipes/bridge.md
   - Blog:
       - blog/index.md
