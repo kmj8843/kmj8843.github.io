@@ -1,4 +1,4 @@
-# React Native
+# React Native - 작성 중(내용 요약 및 불필요한 부분 제거)
 
 ## 개발 환경
 
@@ -102,7 +102,7 @@ import * as Sharing from "expo-sharing";
 
 [expo 참고 링크](https://docs.expo.dev/versions/latest/sdk/sharing/)
 
-expo 에서 다른 앱으로의 공유는 지원하지만 다른 앱에서 expo 로 공유는 불가능  
+expo 에서 다른 앱으로의 공유는 지원하지만 다른 앱에서 expo 로 공유는 불가능
 필요하다면 [third-party 라이브러리](#expo-share-extension) 사용 필요
 
 ### expo share extension
@@ -117,7 +117,7 @@ expo 에서 다른 앱으로의 공유는 지원하지만 다른 앱에서 expo 
 import { StatusBar } from "expo-status-bar";
 ```
 
-expo 를 사용중이라면 `expo-status-bar` 를 사용하는게 좋음  
+expo 를 사용중이라면 `expo-status-bar` 를 사용하는게 좋음
 기본적인 기능들이 android, ios 각각 맞게 구현되어 있음
 
 ### splash screen

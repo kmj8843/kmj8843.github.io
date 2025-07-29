@@ -1,6 +1,8 @@
-# build config
+# BuildConfig 에러
 
 `npx expo prebuild` bareworkflow 로 전환 후, `Unresolved reference: BuildConfig` 또는 `Unresolved reference: PackageList` 에러가 발생할 경우 아래와 같이 조치가 필요합니다.
+
+## 해결 방법
 
 ```jproperties title="gradle.properties"
 android.defaults.buildfeatures.buildconfig=true

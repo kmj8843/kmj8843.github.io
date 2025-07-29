@@ -86,9 +86,9 @@ nav:
           - 개요: frameworks/react-native/index.md
           - Components:
               - Deep Link: frameworks/react-native/components/deep-link.md
-              - Troubleshoot:
-                  - BuildConfig: frameworks/react-native/troubleshooting/buildconfig.md
-          - receipes:
+          - Troubleshoot:
+              - BuildConfig: frameworks/react-native/troubleshooting/buildconfig.md
+          - Receipes:
               - Kotlin Bridge: frameworks/react-native/receipes/bridge.md
   - Blog:
       - blog/index.md
