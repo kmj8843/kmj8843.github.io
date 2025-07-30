@@ -38,15 +38,15 @@ theme:
       toggle:
         icon: material/toggle-switch-off
         name: Switch to system preference
-  font:
-    text: Roboto
-    code: Roboto Mono
   # favicon: assets/favicon.png
   icon:
     logo: logo
   font:
     text: Inter
     code: Fira Code
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - abbr
@@ -72,6 +72,7 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - md_in_html
 
 plugins:
   - search
@@ -86,8 +87,10 @@ nav:
           - 개요: frameworks/react-native/index.md
           - Components:
               - Deep Link: frameworks/react-native/components/deep-link.md
+          - Tips:
+              - Log 확인: frameworks/react-native/tips/log.md
           - Troubleshoot:
-              - BuildConfig: frameworks/react-native/troubleshooting/buildconfig.md
+              - BuildConfig 에러 해결 방법: frameworks/react-native/troubleshoot/buildconfig.md
           - Receipes:
               - Kotlin Bridge: frameworks/react-native/receipes/bridge.md
   - Blog:

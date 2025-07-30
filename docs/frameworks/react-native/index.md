@@ -1,4 +1,8 @@
-# React Native - 작성 중(내용 요약 및 불필요한 부분 제거)
+# React Native 란? - 작성 중(내용 요약 및 불필요한 부분 제거)
+
+React Native는 JavaScript와 React를 사용하여 네이티브 모바일 앱을 개발할 수 있는 프레임워크입니다. 이를 통해 개발자는 iOS와 Android 플랫폼에서 동시에 작동하는 앱을 작성할 수 있습니다. React Native는 네이티브 컴포넌트를 사용하여 성능을 최적화하고, JavaScript로 작성된 코드를 네이티브 코드로 변환하여 실행합니다.
+
+공식 가이드와 문서: [React Native 공식 문서](https://reactnative.dev/docs/getting-started)
 
 ## 개발 환경
 
@@ -31,6 +35,14 @@
 - expo 를 사용하여 개발한 앱을 테스트할 수 있는 앱
 - expo 공식 SDK 가 포함되어 있어, expo SDK 를 사용하여 개발한 앱을 쉽게 테스트할 수 있음
 - 네이티브 모듈이 추가된 앱은 테스트할 수 없음
+
+## 시작하기
+
+### Expo CLI 설치
+
+```bash
+npm install -g expo-cli
+```
 
 ## components
 
