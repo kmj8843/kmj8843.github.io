@@ -64,6 +64,4 @@ adb TAG_NAME1:W TAG_NAME2:I *:S
 
 추후 업데이트 예정
 
-### 참고 문서
-
 [^1]: [Android Developer](https://developer.android.com/tools/logcat?hl=ko)
