@@ -2,7 +2,7 @@
 
 ## Android
 
-Android에서 앱의 로그를 확인하려면 `adb logcat` 명령어를 사용합니다. 이 명령어는 Android 디바이스의 로그 메시지를 실시간으로 출력합니다.
+Android 에서 앱의 로그를 확인하려면 `adb logcat`[^1] 명령어를 사용합니다. 이 명령어는 Android 디바이스의 로그 메시지를 실시간으로 출력합니다.
 
 다음과 같은 옵션을 추가하여 로그를 필터링할 수 있습니다:
 
@@ -60,8 +60,10 @@ adb TAG_NAME1:W TAG_NAME2:I *:S
     adb logcat | grep "com.yourapp.package"
     ```
 
-[Android Developer logcat 문서](https://developer.android.com/tools/logcat?hl=ko)
-
 ## IOS
 
 추후 업데이트 예정
+
+### 참고 문서
+
+[^1]: [Android Developer](https://developer.android.com/tools/logcat?hl=ko)
